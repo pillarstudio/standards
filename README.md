@@ -77,3 +77,7 @@ Use first upper-case letters for both class and file names.
 
 # References
 
+1. [Folder Structure](https://gist.github.com/ryanflorence/daafb1e3cb8ad740b346)
+2. [Angular Documentation](https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation)
+3. [CSS BEM Syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+
