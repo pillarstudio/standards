@@ -6,7 +6,7 @@ TODO: create file template
 
 ## Naming a component
 
-- Its filename should use the CamelCase naming convention
+- Its filename should use the PascalCase naming convention, e.g. GlobalHeader.js
 - Its filename should be identical to its exported name, see below
 
 ```
