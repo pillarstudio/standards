@@ -5,7 +5,7 @@
 ### Use a new let/const statement for each declaration
 Minifier will do the job.
 
-```
+```javascript
 // Bad
 let a = 'foo',
     b = a + 'bar',
@@ -20,7 +20,7 @@ let c = fn(a, b);
 
 ### Common variables
 
-```
+```javascript
 // Event object
 
 const onClick = function(e) {
@@ -45,7 +45,7 @@ for(let i = 0, l = items.length; i < l; i++) {
 Whenever possible avoid the use of `var`.
 Instead, use `const` as a default and whenever you need to mutate a value use `let`.
 
-```
+```javascript
 const speed = 100;
 
 if(true) {
@@ -62,7 +62,7 @@ speed = 50;
 
 ### Classes
 
-```
+```javascript
 class Parent {
     constructor() {
     }
@@ -94,7 +94,7 @@ child.foo();
 
 ### Requiring modules
 
-```
+```javascript
 import React from 'react';
 import { Link } from 'react-router';
 ```
@@ -102,7 +102,7 @@ import { Link } from 'react-router';
 
 ### Arrow functions
 
-```
+```javascript
 do.something(function(a, b) {
     return a + b;
 });
@@ -134,7 +134,7 @@ var module = {
 To signal that you are destructuring, use extra spaces on either side.
 
 
-```
+```javascript
 // Objects
 const foo = {
     bar: 1,
@@ -150,7 +150,7 @@ console.log(baz);
 // renders => '2'
 ```
 
-```
+```javascript
 // Arrays
 const foo = ['one', 'two', 'three'];
 const [ first ] = tenses;
@@ -159,7 +159,7 @@ console.log(first);
 // renders => 'one'
 ```
 
-```
+```javascript
 const foo = 2;
 
 const obj = {
@@ -171,7 +171,7 @@ console.log(obj.foo);
 // renders => '1'
 ```
 
-```
+```javascript
 const name = 'will';
 const age = 26;
 
@@ -184,7 +184,7 @@ some.method({ name, age });
 }
 ```
 
-```
+```javascript
 // bracket notation
 const prop = 'opacity';
 
@@ -193,8 +193,7 @@ const style = {
 };
 ```
 
-```
-
+```javascript
 // destructuring with default values
 function({ weight: w, height: h, max = 25, callback }) {
     const bmi = w / Math.pow(h, 2);
@@ -215,7 +214,7 @@ calcBmi({ weight, height, callback: function() {} });
 
 ### Template Strings
 
-```
+```javascript
 const name = 'will';
 const thing = 'party';
 
@@ -235,7 +234,7 @@ JSDoc can be parsed by a number of open source tools, and must be well-formed.
 
 Syntax:
 
-```
+```javascript
 /**
  * A JSDoc comment should begin with a slash and 2 asterisks.
  */
@@ -243,7 +242,7 @@ Syntax:
 
 Top-level comments: The top level file comment is designed to orient readers unfamiliar with the code to what is in this file and any other disclaimers clients of the code should be given. It should provide a description of the file's contents and any dependencies or compatibility information. As an example:
 
-```
+```javascript
 /**
  * Various components to handle management of lists of coaches for
  * the profile page.
@@ -257,7 +256,7 @@ Top-level comments: The top level file comment is designed to orient readers unf
 
 Class comments: Classes must be documented with a description, and appropriate type tags (see “Methods and properties” comments for more information on types on the constructor.
 
-```
+```javascript
 /**
  * Class making something fun and easy.
  *
@@ -281,7 +280,7 @@ Type annotations are based on the ES4/JS2 type system, and are documented in the
 
 Example:
 
-```
+```javascript
 /**
  * A UI component allows users to select badges from their full list
  * of earned badges, displaying them in a container.

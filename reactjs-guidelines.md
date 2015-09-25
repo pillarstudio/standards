@@ -9,7 +9,7 @@ TODO: create file template
 - Its filename should use the PascalCase naming convention, e.g. GlobalHeader.js
 - Its filename should be identical to its exported name, see below.
 
-```
+```javascript
 // Filename: Foo.js
 
 class Foo extends React.Component {}
@@ -20,7 +20,7 @@ export default Foo;
 
 ## Component organisation
 
-```
+```javascript
 // node_modules
 import React from 'react';
 
@@ -93,7 +93,7 @@ class Foo extends React.Component {
 ## Stateless function components
 Use the simpler syntax introduced in React 0.14.
 
-```
+```javascript
 // Using an ES2015 (ES6) arrow function:
 var Aquarium = (props) => {
     var fish = getFish(props.species);
@@ -119,7 +119,7 @@ var Aquarium = ({species}) => (
 - Alphabetically sort each group
 - Separate them by a new line
 
-```
+```javascript
 static propTypes = {
     blank: React.PropTypes.bool.isRequired,
     block: React.PropTypes.bool.isRequired,
@@ -133,7 +133,7 @@ static propTypes = {
 ## Prefixing none React methods
 Prefix all none React methods within a component with an underscore.
 
-```
+```javascript
 class Foo extends React.Component {
 
     componentDidMount() {
@@ -155,10 +155,10 @@ class Foo extends React.Component {
 
 ## Using handler methods
 
-- Name the methods using `'_handle' + triggering event`, e.g. `_handleClick`
-- Bind the handler using the ES6 arrow syntax, so inside the callback it has always the right context
+- Name methods using `'_handle' + triggering event`, e.g. `_handleClick`
+- Bind handler using the ES6 arrow syntax, so inside the callback it has always the right context
 
-```
+```javascript
 class Foo extends React.Component {
 
     _handleClick = (e) => {
@@ -182,7 +182,7 @@ class Foo extends React.Component {
 ## Using “container” components for loading data from Stores
 
 
-```
+```javascript
 // CommentListContainer.js
 
 class CommentListContainer extends React.Component {
@@ -225,12 +225,9 @@ Source: https://medium.com/@learnreact/container-components-c0e67432e005
 
 
 
-## Working with DOM listeners
-http://facebook.github.io/react/tips/dom-event-listeners.html
-
-
 ## Closing Components without children
-```
+
+```javascript
 render() {
     return (
         <Foo>
@@ -245,7 +242,7 @@ render() {
 
 When rendering a list of components from an array, do it inline if it makes sense. If the map function is too long or complicated, consider extracting it out into its own method on the component class.
 
-```
+```javascript
 render() {
     return (
         <ul>
@@ -258,7 +255,7 @@ render() {
 
 ## Formatting Attributes
 
-```
+```javascript
 <input
     type="text"
     value={this.state.foo}
@@ -270,14 +267,13 @@ render() {
 ## Inline CSS styles
 Static properties should be set in the SCSS, dynamic ones in JS.
 
-```
-// SCSS
+```css
 .Foo {
     background-color: #ff0;
 }
+```
 
-
-// JS
+```javascript
 class Foo extends React.Component {
 
     render() {
@@ -301,7 +297,7 @@ class Foo extends React.Component {
 
 Use the [classnames](https://www.npmjs.com/package/classnames) node module for setting CSS classes on an element.
 
-```
+```javascript
 import React from 'react';
 import classnames from 'classnames';
 
@@ -326,13 +322,18 @@ class Foo extends React.Component {
 ## Formatting attributes
 If an element/component has 2 or more attributes, split them over multiple lines. 
 
-```
+```javascript
 <input
   type="foo"
   value={this.state.bar}
   onChange={this._handleBar} 
 />
 ```
+
+
+## Working with DOM listeners
+http://facebook.github.io/react/tips/dom-event-listeners.html
+
 
 ## Using StaticContainer for more granular control over shouldUpdate
 https://github.com/reactjs/react-static-container
