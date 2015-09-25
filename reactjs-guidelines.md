@@ -7,7 +7,7 @@ TODO: create file template
 ## Naming a component
 
 - Its filename should use the PascalCase naming convention, e.g. GlobalHeader.js
-- Its filename should be identical to its exported name, see below
+- Its filename should be identical to its exported name, see below.
 
 ```
 // Filename: Foo.js
@@ -114,11 +114,10 @@ var Aquarium = ({species}) => (
 
 ## PropTypes declarations
 
-- Setting propTypes declarations for every component is mandatory!
+- Setting propTypes declarations is mandatory
 - Group them into required/none-required
 - Alphabetically sort each group
 - Separate them by a new line
-
 
 ```
 static propTypes = {
@@ -132,13 +131,43 @@ static propTypes = {
 
 
 ## Prefixing none React methods
-All none React methods are prefixed with an underscore.
+Prefix all none React methods within a component with an underscore.
 
 ```
 class Foo extends React.Component {
 
-    // Place all none-react methods here
-    _handleClick() {}
+    componentDidMount() {
+        this._update();
+    }
+    
+    _update() {
+        // e.g. update position
+    }
+    
+    render() {
+        return (
+            <div>foo</div>
+        );
+    }
+}   
+```
+
+
+## Using handler methods
+
+- Name the methods using `'_handle' + triggering event`, e.g. `_handleClick`
+- Bind the handler using the ES6 arrow syntax, so inside the callback it has always the right context
+
+```
+class Foo extends React.Component {
+
+    _handleClick = (e) => {
+        this.setState(
+            {
+                clicked: true
+            }
+        );
+    }
     
     render() {
         return (
@@ -148,25 +177,6 @@ class Foo extends React.Component {
 }
 ```
 
-
-## Naming handler methods
-
-- Name the handler methods after their triggering event
-- Start the handler methods with '_handle' followed by the name of the event
-
-```
-class Foo extends React.Component {
-
-    // Place all none-react methods here
-    _handleClick() {}
-    
-    render() {
-        return (
-            <button onClick={this._handleClick}>Submit</button>
-        );
-    }
-}
-```
 
 
 ## Using “container” components for loading data from Stores

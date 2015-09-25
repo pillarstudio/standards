@@ -3,6 +3,13 @@ Coding Standards
 
 Coding Standards and Practices for Javascript/ES6 used by [Pillar](https://pillarstudio.com).
 
+
+# General
+
+- Resolve all errors or warnings before pushing to production! 
+
+
+
 # Variable Names
 
 Variable name specifying content type followed by variable name using first upper-case letters.
