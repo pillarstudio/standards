@@ -18,24 +18,6 @@ let c = fn(a, b);
 ```
 
 
-### Common variables
-
-```javascript
-// Event object
-
-const onClick = function(e) {
-    //
-};
-
-
-// Index and length
-
-for(let i = 0, l = items.length; i < l; i++) {
-    //
-}
-```
-
-
 
 ## ES6
 
@@ -315,7 +297,7 @@ Badges.DisplayCase = Backbone.View.extend({
 ```
 
 
-
+## Sources
 
 http://ponyfoo.com/articles/tagged/es6-in-depth
 http://projects.formidablelabs.com/es6-interactive-guide/#/
