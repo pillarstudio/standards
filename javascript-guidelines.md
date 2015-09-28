@@ -11,26 +11,6 @@
 ## ES6
 
 
-### Block Scope
-
-Whenever possible avoid the use of `var`.
-Instead, use `const` as a default and whenever you need to mutate a value use `let`.
-
-```javascript
-const speed = 100;
-
-if(true) {
-    let inMotion = false;
-}
-
-console.log(inMotion);
-// Render => Error: inMotion is not defined!
-
-speed = 50;
-// Render => Error: speed is a constant!
-```
-
-
 ### Classes
 
 ```javascript
@@ -128,18 +108,22 @@ var module = {
 
 
 
-### Let and const
-Stop using the word `var` and instead use const or let.
-
-
-#### General
-Use `const` on default. Whenever the variable needs to be mutated, use `let`.
+### Block scope
+Whenever possible avoid the use of `var`.
+Instead, use `const` as a default and whenever you need to mutate a value use `let`.
 
 ```javascript
-const foo = 'foo';
+const speed = 100;
 
-let bar = 1;
-bar = bar + 1;
+if(true) {
+    let inMotion = false;
+}
+
+console.log(inMotion);
+// Render => Error: inMotion is not defined!
+
+speed = 50;
+// Render => Error: speed is a constant!
 ```
 
 
