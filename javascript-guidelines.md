@@ -94,7 +94,7 @@ Source: [https://medium.com/@ryanflorence/functions-without-function-bc356ed34a2
 
 #### Concise methods
  
-```
+```javascript
 const MathUtils = {
     add: function (x, y) {
         return x + y
