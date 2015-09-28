@@ -82,7 +82,34 @@ import { Link } from 'react-router';
 ```
 
 
-### Arrow functions
+### Functions without 'function'
+
+"Never type the word 'function' ever again" - Ryan Florence
+
+You expect the value of `this` to either be the object who defined the method (or class instance), or the current `this` where the function is defined. I get that if I never type the word "function".
+
+
+Source: [https://medium.com/@ryanflorence/functions-without-function-bc356ed34a2f](https://medium.com/@ryanflorence/functions-without-function-bc356ed34a2f)
+
+
+#### Concise methods
+ 
+```
+const MathUtils = {
+    add: function (x, y) {
+        return x + y
+    }
+}
+
+// Can be written like
+const MathUtils = {
+    add (x, y) {
+        return x + y
+    }
+}
+```
+
+#### Arrow functions
 
 ```javascript
 do.something(function(a, b) {
@@ -108,6 +135,9 @@ var module = {
     }
 };
 ```
+
+
+
 
 
 
