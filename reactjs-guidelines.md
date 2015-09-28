@@ -45,8 +45,6 @@ import Bar from './components/Bar';
 
 class Foo extends React.Component {
 
-    static displayName = 'Foo';
-    
     static contextTypes = {}; // Only needed when using context!
     
     static propTypes = {};
@@ -110,6 +108,8 @@ var Aquarium = ({species}) => (
 // Then use: <Aquarium species="rainbowfish" />
 ```
 
+[Read More](http://facebook.github.io/react/blog/2015/09/10/react-v0.14-rc1.html#stateless-function-components)
+
 
 
 ## PropTypes declarations
@@ -142,6 +142,24 @@ class Foo extends React.Component {
     
     _update() {
         // e.g. update position
+    }
+    
+    render() {
+        return (
+            <div>foo</div>
+        );
+    }
+}   
+```
+
+## Prefixing none React variables
+Prefix all none React variables within a component with an underscore.
+
+```javascript
+class Foo extends React.Component {
+
+    componentDidMount() {
+        this._el = React.FindDOMNode(this.refs.foo);
     }
     
     render() {
@@ -259,7 +277,8 @@ render() {
 <input
     type="text"
     value={this.state.foo}
-    onChange={this._handleInputChange.bind(this, 'foo')} />
+    onChange={this._handleInputChange.bind(this, 'foo')}
+/>
 ```
 
 
