@@ -2,20 +2,9 @@
 
 ## General
 
-### Use a new let/const statement for each declaration
-Minifier will do the job.
-
-```javascript
-// Bad
-let a = 'foo',
-    b = a + 'bar',
-    c = fn(a, b);
-    
-// Good
-let a = 'foo';
-let b = a + 'bar';
-let c = fn(a, b);
-```
+- Do not use `var`
+- Do not use `function`
+- Use ES6 features
 
 
 
@@ -138,6 +127,36 @@ var module = {
 
 
 
+
+### Let and const
+Stop using the word `var` and instead use const or let.
+
+
+#### General
+Use `const` on default. Whenever the variable needs to be mutated, use `let`.
+
+```javascript
+const foo = 'foo';
+
+let bar = 1;
+bar = bar + 1;
+```
+
+
+#### Formatting
+Minifier will do the job.
+
+```javascript
+// Bad
+let a = 'foo',
+    b = a + 'bar',
+    c = fn(a, b);
+    
+// Good
+let a = 'foo';
+let b = a + 'bar';
+let c = fn(a, b);
+```
 
 
 

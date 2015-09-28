@@ -1,8 +1,5 @@
 # Coding Guidelines - ReactJS
 
-TODO: create file template
-
-
 
 ## Naming a component
 
