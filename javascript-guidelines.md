@@ -143,6 +143,20 @@ let c = fn(a, b);
 ```
 
 
+### Default arguments
+
+```
+function foo(state = {}, action) {
+  return state;
+}
+```
+
+### Rest operator
+
+```
+// TODO
+```
+
 
 ### Destructuring
 

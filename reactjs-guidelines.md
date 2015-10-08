@@ -1,12 +1,46 @@
 # Coding Guidelines - ReactJS
 
 
-## Naming a component
 
-- Its filename should use the PascalCase naming convention, e.g. GlobalHeader.js
-- Its filename should be identical to its exported name, see below.
+## Table of Contents
+
+  1. [Basic Rules](#basic-rules)
+  1. [Naming](#naming)
+  1. [Declaration](#declaration)
+  1. [Alignment](#alignment)
+  1. [Quotes](#quotes)
+  1. [Spacing](#spacing)
+  1. [Props](#props)
+  1. [Parentheses](#parentheses)
+  1. [Tags](#tags)
+  1. [Methods](#methods)
+  1. [Ordering](#ordering)
+  
+  
+  
+
+## Basic Rules
+
+- Only include one React component per file.
+- Always use JSX syntax.
+- Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
+
+
+
+## Naming
+- File- and component name need to be identical.
+- Use PascalCase naming convention for filename as well as component name, e.g. GlobalHeader.js
 
 ```javascript
+// Bad
+// Filename: foo.js
+
+class Foo extends React.Component {}
+
+export default Foo;
+
+
+// Good
 // Filename: Foo.js
 
 class Foo extends React.Component {}
@@ -15,78 +49,150 @@ export default Foo;
 ```
 
 
-## Component organisation
+
+## Ordering
+
+- Ordering for class extends React.Component:
+
+1. constructor
+1. optional static methods
+1. getChildContext
+1. componentWillMount
+1. componentDidMount
+1. componentWillReceiveProps
+1. shouldComponentUpdate
+1. componentWillUpdate
+1. componentDidUpdate
+1. componentWillUnmount
+1. *clickHandlers or eventHandlers* like onClickSubmit() or onChangeDescription()
+1. *getter methods for render* like getSelectReason() or getFooterContent()
+1. *Optional render methods* like renderNavigation() or renderProfilePicture()
+1. render
+
+- How to define propTypes, defaultProps, contextTypes, etc...  
 
 ```javascript
-// node_modules
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-// helpers
-import storeWatcher from 'helpers/storeWatcher';
+const propTypes = {
+    id: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    text: PropTypes.string,
+};
 
-// constants
-import AppConstants from 'AppConstants';
+const defaultProps = {
+    text: 'Hello World',
+};
 
-// actions
-import AppActions from 'AppActions';
-
-// stores
-import FooStore from 'FooStore';
-
-// shared components
-import Foo from 'components/foo/Foo';
-
-// sub-components
-import Bar from './components/Bar';
-
-
-class Foo extends React.Component {
-
-    static contextTypes = {}; // Only needed when using context!
-    
-    static propTypes = {};
-    
-    static defaultProps = {};
-    
-    state = {};
-    
-    // React lifecycle methods in order of occurrence
-    
-    componentWillMount() {
-        // Add event listeners (Store, WebSocket, document, etc.)
+export default class Link extends Component {
+    static methodsAreOk() {
+        return true;
     }
-    
-    componentDidMount() {
-        // Use of refs (this.refs.foo)
+
+    render() {
+        return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
     }
-    
-    componentWillReceiveProps() {}
-    
-    shouldComponentUpdate() {}
-    
-    componentWillUpdate() {}
-    
-    componentDidUpdate() {}
-    
-    componentWillUnmount() {
-        // Remove event listeners (Store, WebSocket, document, etc.)
-    }
-    
-    // None-react methods below
-    
-    _customMethodOne() {}
-    
-    _customMethodTwo() {}
-    
-    // Render method always comes last
-    
-    render() {}
 }
+
+Link.propTypes = propTypes;
+Link.defaultProps = defaultProps;
+```
+
+
+## Alignment
+- Follow these alignment styles for JSX syntax
+
+```javascript
+// bad
+<Foo superLongParam="bar"
+     anotherSuperLongParam="baz" />
+
+// good
+<Foo
+  superLongParam="bar"
+  anotherSuperLongParam="baz"
+/>
+
+// if props fit in one line then keep it on the same line
+<Foo bar="bar" />
+
+// children get indented normally
+<Foo
+  superLongParam="bar"
+  anotherSuperLongParam="baz"
+>
+    <Spazz />
+</Foo>
+```
+
+
+## Quotes
+
+- Always use double quotes (`"`) for JSX attributes, but single quotes for all other JS.
+
+```javascript
+// bad
+<Foo bar='bar' />
+
+// good
+<Foo bar="bar" />
+
+// bad
+<Foo style={{ left: "20px" }} />
+
+// good
+<Foo style={{ left: '20px' }} />
+
+
+
+
+## Props
+- Always use camelCase for prop names.
+
+```javascript
+// bad
+<Foo
+    UserName="hello"
+    phone_number={12345678}
+/>
+
+// good
+<Foo
+    userName="hello"
+    phoneNumber={12345678}
+/>
+```
+
+
+
+## Tags
+- Always self-close tags that have no children.
+
+```javascript
+// bad
+<Foo className="stuff"></Foo>
+
+// good
+<Foo className="stuff" />
+```
+
+- If your component has multi-line properties, close its tag on a new line.
+```javascript
+// bad
+<Foo
+    bar="bar"
+    baz="baz" />
+
+// good
+<Foo
+    bar="bar"
+    baz="baz"
+/>
 ```
 
 
 ## Stateless function components
-Use the simpler syntax introduced in React 0.14.
+For stateless components use the function syntax, introduced in React 0.14.
 
 ```javascript
 // Using an ES2015 (ES6) arrow function:
@@ -334,17 +440,6 @@ class Foo extends React.Component {
 }
 ```
 
-
-## Formatting attributes
-If an element/component has 2 or more attributes, split them over multiple lines. 
-
-```javascript
-<input
-  type="foo"
-  value={this.state.bar}
-  onChange={this._handleBar} 
-/>
-```
 
 
 ## Working with DOM listeners
