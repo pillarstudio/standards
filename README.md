@@ -23,6 +23,11 @@ Variable name specifying content type followed by variable name using first uppe
 - `fVariableName` functions and callbacks
 - `tVariableName` unix timestamps
 
+Also welcome:
+
+- `isVariableName` booleans
+- `hasVariableName` booleans
+
 # Class Names
 
 Use first upper-case letters for both class and file names.
